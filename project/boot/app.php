@@ -10,6 +10,9 @@ include_once __DIR__ . "/db.php";
 include_once __DIR__ . "/events.php";
 include_once __DIR__ . "/gump.php";
 
+//définir la version en random pour contourner le cache
+the()->version(date("Y-m-d-His"));
+
 Classiq::install();
 include_once __DIR__ . "/mail-config.php";
 
