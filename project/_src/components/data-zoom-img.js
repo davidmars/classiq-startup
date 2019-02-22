@@ -10,8 +10,7 @@ var DataZoomImg={
             $body.append($zoomLayer);
             //bouton fermer
             $zoomLayer.find(".close").on("click",function(){
-                $zoomLayer.remove();
-                $body.off('keydown',"#data-zoom-layer");
+                close();
             });
         }
 
@@ -37,7 +36,22 @@ var DataZoomImg={
 
         //charge l'image
         let url=$btn.attr("data-zoom-img");
-        $zoomLayer.find(".img-container").css("background-image","url('"+url+"')");
+        let $imgContainer=$zoomLayer.find(".img-container");
+        $imgContainer.find("video.zoom-layer-video").remove();
+
+        if($btn.attr("data-zoom-type")==="video"){
+            let $vdo=$("<video></video>");
+            $vdo.addClass("zoom-layer-video");
+            $vdo.attr("src",url);
+            $vdo.attr("autoplay","autoplay");
+            $vdo.attr("controls","controls");
+            $imgContainer.append($vdo);
+            $imgContainer.css("background-image","none");
+        }else{
+            $imgContainer.css("background-image","url('"+url+"')");
+
+        }
+
 
         //gère les précédents suivants
         let $btnNext=$zoomLayer.find(".next");
@@ -47,15 +61,39 @@ var DataZoomImg={
         let $allZooms=$("[data-zoom-img]");
         let $prev=null;
         let $next=null;
+
+        /**
+         * Affiche le slide précédent
+         */
         function prev(){
             if($prev && $prev.length){
-                DataZoomImg.display($prev)
+                $imgContainer.attr("transi","fade-out-right");
+                setTimeout(function(){
+                    DataZoomImg.display($prev);
+                    $imgContainer.attr("transi","fade-in-left");
+                },500);
             }
         }
+        /**
+         * Affiche le slide suivant
+         */
         function next(){
             if($next && $next.length){
-                DataZoomImg.display($next)
+                $imgContainer.attr("transi","fade-out-left");
+                setTimeout(function(){
+                    DataZoomImg.display($next)
+                    $imgContainer.attr("transi","fade-in-right");
+                },500);
+
             }
+        }
+
+        /**
+         * Ferme le layer
+         */
+        function close(){
+            $zoomLayer.remove();
+            $body.off('keydown',"#data-zoom-layer");
         }
         for(let i=0; i< $allZooms.length ;i++){
             let $curr=$($allZooms[i]);
@@ -91,4 +129,5 @@ $body.on("mousedown","[data-zoom-img]",function(e){
     e.preventDefault();
     e.stopPropagation();
     DataZoomImg.display($(this));
+
 });

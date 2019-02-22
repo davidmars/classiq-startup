@@ -13,9 +13,11 @@ if($file){
 <div class="container">
     <? if ($src): ?>
         <div class="cadre">
-            <div class="embed-responsive embed-responsive-16by9">
+            <div class="embed-responsive embed-responsive-16by9" data-zoom-img="<?=$src?>" data-zoom-type="video">
                 <video controls src="<?=$src?>"></video>
+                <?=pov()->svg->use("startup-zoom")?>
             </div>
+
         </div>
     <? else: ?>
         <div id="cq-style">

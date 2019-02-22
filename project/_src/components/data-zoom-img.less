@@ -10,6 +10,10 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   color: #fff;
+  animation: dz-open-zoom-layer;
+  animation-fill-mode: both;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
 
   >.close,.next,.prev{
     position: absolute;
@@ -24,7 +28,7 @@
     }
   }
 
->.close{
+  >.close{
     right: 0;
     top: 0;
     @media(min-width: @screen-lg) {
@@ -47,14 +51,75 @@
     top: 50%;
   }
 
+
+
   .img-container{
     background-size: contain;
-    margin: var(--spacing-big);
-    width: calc(100% - var(--spacing-big) * 2);
+    margin:  var(--spacing-big) calc( var(--spacing-big) *2 );
+    width: calc(100% - var(--spacing-big) * 4);
+    //width: calc(100% - 300px );
     height: calc(100% - var(--spacing-big) * 2);
     background-position: center;
     background-repeat: no-repeat;
+    >video{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  .img-container{
+
+    //transition: opacity 0.4s, transform 0.4s;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+
+    &[transi='fade-in-left']{
+      animation-name: dz-fade-in-left;
+    }
+    &[transi='fade-in-right']{
+      animation-name: dz-fade-in-right;
+    }
+    &[transi='fade-out-right']{
+      animation-name: dz-fade-out-right;
+    }
+    &[transi='fade-out-left']{
+      animation-name: dz-fade-out-left;
+    }
   }
 
 
+}
+
+@keyframes dz-fade-in-right {
+  from{
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+@keyframes dz-fade-in-left {
+  from{
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+}
+@keyframes dz-fade-out-right {
+  to{
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+@keyframes dz-fade-out-left {
+  to{
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+}
+@keyframes dz-open-zoom-layer{
+  from{
+    opacity: 0;
+    transform: scale(0.95);
+  }
 }
