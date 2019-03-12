@@ -36,6 +36,12 @@ if(!the()->requestUrl->isAjax){
     the()->htmlLayout()->hreflang=the()->project->langCode;
     the()->htmlLayout()->favicon->favicon=the()->fileSystem->filesystemToHttp("project/logo.png");
     the()->htmlLayout()->addJavascriptTranslations();
+
+    //manifest
+    the()->htmlLayout()->webAppManifest=the()->fileSystem->filesystemToHttp("manifest.json")."?r=".date("Y-m-d-H-i-s");
+    the()->htmlLayout()->webAppManifest=\Pov\Defaults\C_default::quickView_url("manifest");
+    the()->htmlLayout()->meta->themeColor="#ff0000";
+
     $view->inside("layout/html5bp",the()->htmlLayout());
 }
 
