@@ -14,6 +14,7 @@
   animation-fill-mode: both;
   animation-duration: 0.4s;
   animation-iteration-count: 1;
+  overflow-y: auto;
 
   >.close,.next,.prev{
     position: absolute;
@@ -25,6 +26,19 @@
       color: #fff;
       width: 100%;
       height: 100%;
+    }
+    &:hover{
+      svg{
+        color: #eee;
+      }
+    }
+    animation-name: dz-open-zoom-layer;
+    animation-duration: 0.5s;
+    animation-delay: 0.25s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    &.prev,&.next{
+      animation-delay: 0.5s;
     }
   }
 
@@ -52,13 +66,28 @@
   }
 
 
+  .legende{
+    //outline: 1px solid red;
+    margin-left: calc( var(--spacing-big) * 2);;
+    margin-right:calc( var(--spacing-big) * 2);
+    width: calc( 100% - var(--spacing-big) * 4);
+    min-height: calc( var(--spacing-big) * 2);
+    position: absolute;
+    top: calc( 100% - var(--spacing-big) * 2);;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .lire;
+  }
+
 
   .img-container{
     background-size: contain;
-    margin:  var(--spacing-big) calc( var(--spacing-big) *2 );
+    margin: calc( var(--spacing-big) * 2);;
     width: calc(100% - var(--spacing-big) * 4);
     //width: calc(100% - 300px );
-    height: calc(100% - var(--spacing-big) * 2);
+    height: calc(100% - var(--spacing-big) * 4);
     background-position: center;
     background-repeat: no-repeat;
     >video{
@@ -69,7 +98,7 @@
     }
   }
 
-  .img-container{
+  .img-container,.legende{
 
     //transition: opacity 0.4s, transform 0.4s;
     animation-duration: 0.4s;
@@ -88,19 +117,24 @@
     &[transi='fade-out-left']{
       animation-name: dz-fade-out-left;
     }
-  }
 
+    &.legende{
+      animation-delay: 0.1s;
+    }
+  }
 
 }
 
 @keyframes dz-fade-in-right {
   from{
+    filter: contrast(2) brightness(4);
     transform: translateX(100px);
     opacity: 0;
   }
 }
 @keyframes dz-fade-in-left {
   from{
+    filter: contrast(2) brightness(4);
     transform: translateX(-100px);
     opacity: 0;
   }

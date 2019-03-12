@@ -22,43 +22,82 @@ var DataZoomImg={
         function listenKeys(event){
             console.log(event.keyCode);
             switch(event.keyCode){
-                case 39:
-                case 40:
+                case 39://right
+                case 40://down
                     next();
                     break;
-                case 37:
-                case 38:
+                case 37://right
+                case 38://up
                     prev();
+                    break;
+                case 27://esc
+                //case 8://backspace
+                    close();
                     break;
             }
         }
 
 
-        //charge l'image
+        //variables
         let url=$btn.attr("data-zoom-img");
-        let $imgContainer=$zoomLayer.find(".img-container");
-        $imgContainer.find("video.zoom-layer-video").remove();
-
-        if($btn.attr("data-zoom-type")==="video"){
-            let $vdo=$("<video></video>");
-            $vdo.addClass("zoom-layer-video");
-            $vdo.attr("src",url);
-            $vdo.attr("autoplay","autoplay");
-            $vdo.attr("controls","controls");
-            $imgContainer.append($vdo);
-            $imgContainer.css("background-image","none");
-        }else{
-            $imgContainer.css("background-image","url('"+url+"')");
-
+        let zoomType=$btn.attr("data-zoom-type");
+        if(!zoomType){
+            zoomType="image";
         }
+        let zoomGroup=$btn.attr("data-zoom-group");
 
-
-        //gère les précédents suivants
+        //$elements
+        let $imgContainer=$zoomLayer.find(".img-container");
+        let $legende=$zoomLayer.find(".legende");
+        let $transiEls=$zoomLayer.find(".img-container,.legende");
         let $btnNext=$zoomLayer.find(".next");
         let $btnPrev=$zoomLayer.find(".prev");
+
+        //reset dans tous les cas
+        $imgContainer.find("video.zoom-layer-video").remove();
+        $imgContainer.css("background-image","none");
+        $imgContainer.empty();
+        $legende.text("");
+
+
+        $zoomLayer.attr("is-type",zoomType);
+
+        switch (zoomType) {
+            case "video":
+                let $vdo=$("<video></video>");
+                $vdo.addClass("zoom-layer-video");
+                $vdo.attr("src",url);
+                $vdo.attr("autoplay","autoplay");
+                $vdo.attr("controls","controls");
+                $imgContainer.append($vdo);
+                break;
+            case "selector":
+                let $toInject=$(url).clone();
+                $toInject.removeAttr("data-zoom-group")
+                $toInject.removeAttr("data-zoom-type")
+                $toInject.removeAttr("data-zoom-img")
+                $imgContainer.append($toInject);
+                break;
+            default:
+                $imgContainer.css("background-image","url('"+url+"')");
+        }
+
+        //légende?
+        let legende=$btn.attr("data-zoom-legend");
+        $legende.text(legende);
+
+        //gère les précédents suivants
+
         $btnNext.off("click");
         $btnPrev.off("click");
+
+
         let $allZooms=$("[data-zoom-img]");
+        if(zoomGroup){
+            $allZooms=$allZooms.filter("[data-zoom-group='"+zoomGroup+"']")
+        }else{
+            $allZooms=$allZooms.filter("[data-zoom-group=''],:not([data-zoom-group])")
+        }
         let $prev=null;
         let $next=null;
 
@@ -67,10 +106,10 @@ var DataZoomImg={
          */
         function prev(){
             if($prev && $prev.length){
-                $imgContainer.attr("transi","fade-out-right");
+                $transiEls.attr("transi","fade-out-right");
                 setTimeout(function(){
                     DataZoomImg.display($prev);
-                    $imgContainer.attr("transi","fade-in-left");
+                    $transiEls.attr("transi","fade-in-left");
                 },500);
             }
         }
@@ -79,10 +118,10 @@ var DataZoomImg={
          */
         function next(){
             if($next && $next.length){
-                $imgContainer.attr("transi","fade-out-left");
+                $transiEls.attr("transi","fade-out-left");
                 setTimeout(function(){
                     DataZoomImg.display($next)
-                    $imgContainer.attr("transi","fade-in-right");
+                    $transiEls.attr("transi","fade-in-right");
                 },500);
 
             }
@@ -95,6 +134,8 @@ var DataZoomImg={
             $zoomLayer.remove();
             $body.off('keydown',"#data-zoom-layer");
         }
+
+        //affiche ou pas les précédents suivants
         for(let i=0; i< $allZooms.length ;i++){
             let $curr=$($allZooms[i]);
             if($curr.is($btn)){
