@@ -30,6 +30,9 @@ On part du principe que sur votre machine sont installés:
 * composer
 * node js
 
+Votre serveur doit être capable de télécharger des fichiers via ssl, si ce n'est pas le cas, lisez ceci:
+https://stackoverflow.com/questions/28858351/php-ssl-certificate-error-unable-to-get-local-issuer-certificate/32095378#32095378
+
 ## Installation
 
 ### Librairies
