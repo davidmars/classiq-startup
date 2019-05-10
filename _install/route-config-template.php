@@ -23,8 +23,8 @@ the()->project->config_translations_debug=true; //quand true recharge à chaque 
 //Google Map etc...
 //site()->googleApiKey="xxxxx";
 
-//Google webmaster tools
-//site()->googleSiteVerification="xxxxx";
+//Google search console tools
+//the()->htmlLayout()->googleSiteVerification="xxxxx";
 
 //Google analytics
 //site()->googleAnalyticsId="UA-xxxxxx";

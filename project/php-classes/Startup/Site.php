@@ -16,10 +16,6 @@ class Site extends AbstractSingleton
      */
     public $googleApiKey="";
     /**
-     * @var string clé utilisée par google webmater tools pour vérifier que le site vous appartient
-     */
-    public $googleSiteVerification;
-    /**
      * @var string identifiant Gogle analytics
      */
     public $googleAnalyticsId;
