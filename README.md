@@ -15,6 +15,10 @@ Le CMS une fois installé offre un site volontairement simple et qui contient le
     * Téléchargement
     * liste de pages **TODO**
     * grille de photos **TODO**
+    * masonry **TODO**
+    * diaporama **TODO**
+    * formulaire **TODO**
+    * google map **TODO**
 * layout responsive
     * Menu de nav
     * footer
