@@ -1,0 +1,117 @@
+
+.button{
+  appearance: none;
+  overflow: hidden;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  user-select: none;
+  height: var(--height);
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: var(--padding-x);
+  padding-right: var(--padding-x);
+
+  //shape par défaut
+  .make-shp-pill();
+
+  &:not(:disabled){
+    cursor: pointer;
+  }
+  transition: all 0.2s;
+  //typography
+  text-decoration: none;
+  font-size: var(--font-size);
+  line-height: 1;
+  font-weight: bold;
+  white-space: nowrap;
+  font-family: @font-normal;
+
+
+  //size----------------------------
+  &.sz-small{
+    --height:30px;
+    --padding-x:10px;
+    --font-size:12px;
+  }
+  &.sz-normal, &{
+    --height:40px;
+    --padding-x:25px;
+    --font-size:16px;
+    --ico-size:1.5em;
+  }
+  &.sz-big{
+    --height:55px;
+    --padding-x:35px;
+    --font-size:20px;
+  }
+  &.sz-huge{
+    --height:70px;
+    --padding-x:40px;
+    --font-size:30px;
+  }
+
+  &.square{
+    width: var( --height);
+    padding: 0;
+  }
+
+  //with icons
+  svg{
+    display: block;
+    margin: 0;
+    width: var(--ico-size);
+    height: var(--ico-size);
+    &:first-child{
+      margin-left: calc( -0.5 * var(--padding-x));
+      margin-right: calc( 0.2 * var(--padding-x));
+    }
+    &:last-child{
+      margin-left: calc( 0.2 * var(--padding-x));
+      margin-right: calc( -0.5 * var(--padding-x));
+    }
+    &:only-child{
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  //colors
+
+
+
+
+
+  &:hover{
+    filter:brightness(0.9) contrast(1.2) hue-rotate(10deg);
+  }
+  &.positive,&.positive-hvr:hover, & {
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-secondary);
+  }
+  &.negative,&.negative-hvr:hover{
+    border-color: transparent;
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+  }
+  &.transparent,&.transparent-hvr:hover{
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+  }
+
+  &.naked,&.naked-hvr:hover{
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+
+
+
+
+
+
+
+
+}

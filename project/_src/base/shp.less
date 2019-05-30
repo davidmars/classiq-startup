@@ -1,0 +1,25 @@
+//shape-----------------------------
+
+.make-shp-pill(){
+  border-radius: 100px;
+}
+.make-shp-rounded(){
+  border-radius: 8px ;
+}
+.make-shp-rect(){
+  border-radius: 0 ;
+}
+
+
+&.shp-rounded,&.shp-rounded-hvr:hover{
+  .make-shp-rounded() !important;
+}
+&.shp-pill,&.shp-pill-hover, & {
+  .make-shp-pill() !important;
+}
+&.shp-rect,&.shp-rect-hvr:hover{
+  .make-shp-rect() !important;
+}
+
+
+

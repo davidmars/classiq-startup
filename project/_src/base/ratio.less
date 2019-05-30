@@ -1,0 +1,22 @@
+/**
+*
+* S'applique sur des éléments avec un height = 0.
+* La hauteur est déterminée grace à la largeur;
+**/
+
+.make-ratio(@w,@h){
+  padding-bottom: calc( @h / @w * 100% ) ;
+}
+
+.ratio-4x3 {
+  .make-ratio(4,3) !important;
+}
+.ratio-16x9 {
+  .make-ratio(16,9) !important;
+}
+.ratio-2x1 {
+  .make-ratio(2,1) !important;
+}
+.ratio-1x1 {
+  .make-ratio(1,1) !important;
+}

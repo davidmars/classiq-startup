@@ -1,0 +1,104 @@
+.fx-grayscale,
+.hvr:hover .fx-grayscale-hvr,
+.fx-grayscale-hvr:hover,
+.fx-grayscale-active.active{
+  transition: filter 0.5s;
+  filter: saturate(calc( 1 - var(--fx-level,0.5)));
+}
+
+.fx-darken,
+.hvr:hover .fx-daken-hvr,
+.fx-daken-hvr:hover,
+.fx-daken-active.active{
+  transition: filter 0.5s;
+  filter: brightness( calc( 1 - var(--fx-level,0.5)) );
+}
+
+.make-fx-after(){
+  transition: all 0.5s;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fx-gradient-bottom,
+.hrv:hover .fx-gradient-bottom-hvr,
+.fx-gradient-bottom-hvr:hover,
+.fx-gradient-bottom-active.active{
+  &:after{
+    .make-fx-after();
+    background: linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, var(--color-primary) 100%);
+    opacity: var(--fx-level,1.0);
+  }
+}
+.fx-gradient-radial,
+.hvr:hover .fx-gradient-radial-hvr,
+.fx-gradient-radial-hvr:hover,
+.fx-gradient-radial-active.active
+{
+  &:after{
+    .make-fx-after();
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.0) 0%,var(--color-primary) 100%);;
+    opacity: var(--fx-level,1.0);
+  }
+}
+
+.fx-gradient-hue,
+.hvr:hover .fx-gradient-hue-hvr,
+.fx-gradient-hue-hvr:hover,
+.fx-gradient-hue-active.active
+{
+  &:after{
+    .make-fx-after();
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.0) 0%,var(--color-primary) 100%);;
+    opacity: var(--fx-level,1.0);
+    mix-blend-mode:hue;
+  }
+}
+.fx-gradient-colorize,
+.hvr:hover .fx-gradient-colorize-hvr,
+.fx-gradient-colorize-hvr:hover,
+.fx-gradient-colorize-active.active
+{
+  &:after{
+    .make-fx-after();
+    background: radial-gradient(ellipse at center,  var(--color-primary) 50%,  #FFF 100%);;
+    opacity: var(--fx-level,1.0);
+    mix-blend-mode:color;
+  }
+}
+
+
+.fx-level-0,
+.hvr:hover .fx-level-0-hvr,
+.fx-level-0-hvr:hover,
+.fx-level-0-active.active{
+  --fx-level:0.25;
+}
+.fx-level-25,
+.hvr:hover .fx-level-25-hvr,
+.fx-level-25-hvr:hover,
+.fx-level-25-active.active{
+  --fx-level:0.25;
+}
+.fx-level-50,
+.hvr:hover .fx-level-50-hvr,
+.fx-level-50-hvr:hover,
+.fx-level-50-active.active{
+  --fx-level:0.5;
+}
+.fx-level-75,
+.hvr:hover .fx-level-75-hvr,
+.fx-level-75-hvr:hover,
+.fx-level-75-active.active{
+  --fx-level:0.75;
+}
+.fx-level-100,
+.hvr:hover .fx-level-100-hvr,
+.fx-level-100-hvr:hover,
+.fx-level-100-active.active{
+  --fx-level:1.0;
+}

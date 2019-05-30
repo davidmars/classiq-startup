@@ -1,0 +1,112 @@
+textarea.field{
+  resize: vertical;
+  padding-top: var(--padding-y);
+  padding-bottom: var(--padding-y);
+  height: auto;
+  &.shp-pill{
+    .make-shp-rounded() !important;
+  }
+}
+
+.field{
+  outline: none;
+  &::placeholder{
+    color: inherit;
+    opacity: 0.4;
+  }
+  display: inline-block;
+  height: var(--height);
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: var(--padding-x);
+  padding-right: var(--padding-x);
+  transition: all 0.2s;
+  //typography
+  font-size: var(--font-size);
+  line-height: 1.5;
+  font-weight: normal;
+  font-family: @font-normal;
+
+
+
+
+  //size----------------------------
+  &.sz-small{
+    --height:30px;
+    --padding-x:10px;
+    --font-size:12px;
+  }
+  &.sz-normal, &{
+    --height:40px;
+    --padding-x:15px;
+    --padding-y:15px;
+    --font-size:16px;
+    --ico-size:1.5em;
+  }
+  &.sz-big{
+    --height:60px;
+    --padding-x:20px;
+    --font-size:20px;
+  }
+  &.sz-huge{
+    --height:80px;
+    --padding-x:30px;
+    --font-size:30px;
+  }
+
+
+  //shape-----------------------------
+  &.shp-rounded,&.shp-rounded-hvr:hover{
+    border-radius: 8px;
+  }
+  &.shp-pill{
+    border-radius: 100px;
+  }
+  &.shp-rect, & {
+    border-radius: 0;
+  }
+
+  //colors
+
+
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-secondary);
+
+  &.transparent,&.transparent-hvr:hover{
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+  }
+  &.negative,&.negative-hvr:hover{
+    border-color: transparent;
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+  }
+  &.naked,&.naked-hvr:hover{
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  //scroll bar
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--color-primary);
+    border: 2px solid var(--color-secondary);
+    .negative& {
+      background: var(--color-secondary);
+      border: 2px solid var(--color-primary);
+    }
+  }
+
+
+}

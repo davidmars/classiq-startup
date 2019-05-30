@@ -15,18 +15,33 @@ body{
 }
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
   font-family: @font-titre;
-  font-weight: normal;
-  font-style: italic;
-  letter-spacing: -0.05em;
+  font-weight: bold;
+  //letter-spacing: -0.05em;
 }
 h1,.h1{
   font-size: 2em;
+  @media(min-width: @screen-sm){
+    font-size: 3em;
+  }
+  @media(min-width: @screen-lg){
+    font-size: 4vw;
+  }
+
 }
 h2,.h2{
-  font-size: 1.5em;
+  font-size: 1.75em;
+  @media(min-width: @screen-sm){
+    font-size: 2.5em;
+  }
+  @media(min-width: @screen-lg){
+    font-size: 3vw;
+  }
 }
 h3,.h3{
-  font-size: 1.25em;
+  font-size: 1.5em;
+  @media(min-width: @screen-lg){
+    font-size: 2vw;
+  }
 }
 h4,.h4{
   font-size: 1.15em;
@@ -40,8 +55,8 @@ h6,.h6{
 label{
   font-family: @font-normal;
   text-transform: uppercase;
-  font-weight: bolder;
-  letter-spacing: 0.2em;
+  font-weight: bold;
+  font-size: 0.8em;
 }
 small{
   opacity: 0.8;
