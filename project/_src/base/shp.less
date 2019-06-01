@@ -9,16 +9,22 @@
 .make-shp-rect(){
   border-radius: 0 ;
 }
+.make-shp-circle(){
+  border-radius: 100%;
+}
 
 
-&.shp-rounded,&.shp-rounded-hvr:hover{
+.shp-rounded,.shp-rounded-hvr:hover{
   .make-shp-rounded() !important;
 }
-&.shp-pill,&.shp-pill-hover, & {
+.shp-pill,.shp-pill-hover, & {
   .make-shp-pill() !important;
 }
-&.shp-rect,&.shp-rect-hvr:hover{
+.shp-rect,.shp-rect-hvr:hover{
   .make-shp-rect() !important;
+}
+.shp-circle,.shp-circle-hvr:hover{
+  .make-shp-circle() !important;
 }
 
 
