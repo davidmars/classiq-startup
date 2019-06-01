@@ -1,0 +1,64 @@
+.cards-list{
+
+  outline: 1px dashed rgba(255, 0, 0, 0.29);
+
+  --gutter:15px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  padding-top: var(--gutter);
+  padding-bottom: var(--gutter);
+
+  >*{
+    position: relative;
+    width: 300px;
+    max-width: 100%;
+    margin: var(--gutter);
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+
+  //applique à tous les mêmes shp
+  &.shp-rounded-list{
+    .card{
+      .shp-rounded;
+    }
+  }
+  &.shp-rounded-rect{
+    .card{
+      .shp-rect;
+    }
+  }
+
+
+  //applique à tous les mêmes shadow
+  &.shadow-flat-list{
+    .card{
+      .shadow-flat;
+    }
+  }
+  &.shadow-medium-list{
+    .card{
+      .shadow-medium;
+    }
+  }
+  &.shadow-big-list{
+    .card{
+      .shadow-big;
+    }
+  }
+
+
+  //rend non responsive
+  .card{
+    .sz-big{
+
+    }
+  }
+
+
+}
