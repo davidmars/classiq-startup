@@ -78,40 +78,61 @@
   }
 
   //colors
-
-
-
-
-
   &:hover{
     filter:brightness(0.9) contrast(1.2) hue-rotate(10deg);
   }
-  &.positive,&.positive-hvr:hover, & {
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-    background-color: var(--color-secondary);
-  }
-  &.negative,&.negative-hvr:hover{
-    border-color: transparent;
-    color: var(--color-secondary);
-    background-color: var(--color-primary);
-  }
-  &.transparent,&.transparent-hvr:hover{
-    background-color: transparent;
-    border: 2px solid var(--color-primary);
-  }
 
-  &.naked,&.naked-hvr:hover{
-    border-color: transparent;
-    background-color: transparent;
-  }
-
-
-
-
-
-
-
-
+  .make-colors-positive();
 
 }
+
+
+.make-colors-negative(){
+  border-color: transparent;
+  color: var(--color-secondary);
+  background-color: var(--color-primary,#f00);
+}
+.make-colors-positive(){
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary,#f00);
+  background-color: var(--color-secondary,#f00);
+}
+.make-colors-naked(){
+  border-color: transparent;
+  background-color: transparent;
+}
+.make-colors-transparent(){
+  background-color: transparent;
+  border: 2px solid var(--color-primary,#f00);
+}
+
+.negative,
+.negative-hvr:hover,
+.hvr:hover .negative-hvr
+{
+ .make-colors-negative();
+}
+
+.positive,
+.positive-hvr:hover,
+.hvr:hover .positive-hvr
+{
+  .make-colors-positive();
+}
+
+.naked,
+.naked-hvr:hover,
+.hvr:hover .naked-hvr
+{
+  .make-colors-naked();
+}
+
+.transparent,
+.transparent-hvr:hover,
+.hvr:hover .transparent-hvr
+{
+  .make-colors-transparent();
+}
+
+
+
