@@ -1,7 +1,14 @@
 hr{
   border-top:1px solid var(--color-primary);
 
+  &.vertical{
+    border-top: 0;
+    border-left:1px solid var(--color-primary);
+    min-height: 1em;
+    margin: 0 1em;
+  }
+
   &.fat{
-    border-top:5px solid var(--color-primary);
+    border-width: 5px;
   }
 }

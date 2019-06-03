@@ -1,0 +1,42 @@
+.ico-label{
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  >*{
+    //outline: 1px solid red;
+  }
+  >.ico, >svg, >img{
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size);
+  }
+  >.label, >label{
+    margin-top:calc( var(--size) / 8 );
+    //width: var(--size);
+  }
+
+  //size----------------------------
+  &.sz-small{
+    --size:30px;
+    --font-size:10px;
+  }
+  &.sz-normal, &{
+    --size:90px;
+    --font-size:20px;
+  }
+  &.sz-big{
+    --size:130px;
+    --font-size:30px;
+  }
+  &.sz-huge{
+    --size:200px;
+    --font-size:50px;
+  }
+
+}

@@ -2,4 +2,5 @@
 <?=$view->render("./atomes/typography")?>
 <?=$view->render("./atomes/separateurs")?>
 <?=$view->render("./atomes/buttons")?>
+<?=$view->render("./atomes/badges")?>
 <?=$view->render("./atomes/fields")?>

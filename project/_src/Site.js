@@ -1,3 +1,4 @@
+import Slick from "./organisms/Slick.js";
 export default class Site{
     constructor() {
         /**
@@ -82,6 +83,7 @@ export default class Site{
      * Initialisations d'objets dom
      */
     onDomChange(){
+        Slick.initFromDom();
         //ou pas :)
     }
 }

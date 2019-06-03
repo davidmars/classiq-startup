@@ -1,0 +1,35 @@
+@media (min-width: @screen-lg) {
+  //.is-not-touch{
+    .underline-hvr,
+    .underline-hvr2
+    {
+        text-decoration: none;
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          height: 1px;
+          background: currentColor;
+          bottom: 0;
+          width: 0;
+          left: auto;
+          right: 0;
+          transition: all 0.5s;
+        }
+
+    }
+
+    .underline-hvr:hover,
+    .hvr:hover .underline-hvr,
+    .hvr2:hover .underline-hvr2
+    {
+      &:after {
+        width: 100%;
+        left: 0;
+        right: auto;
+        transition: all 0.5s;
+      }
+    }
+
+  //}
+}

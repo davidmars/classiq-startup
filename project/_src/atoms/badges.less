@@ -1,0 +1,64 @@
+
+.badge{
+  appearance: none;
+  overflow: hidden;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  user-select: none;
+
+  min-width: var(--height);
+  height: var(--height);
+  padding: 0 5px;
+
+  //shape par défaut
+  .make-shp-pill();
+
+  transition: all 0.2s;
+  //typography
+  text-decoration: none;
+  font-size: var(--font-size);
+  line-height: 1;
+  white-space: nowrap;
+  font-family: @font-normal;
+
+
+  //size----------------------------
+  &.sz-small{
+    --height:18px;
+    --font-size:10px;
+    --ico-size:1.0em;
+  }
+  &.sz-normal, &{
+    --height:22px;
+    --font-size:14px;
+    --ico-size:1.0em;
+  }
+  &.sz-big{
+    --height:36px;
+    --font-size:16px;
+    --ico-size:1.0em;
+  }
+  &.sz-huge{
+    --height:60px;
+    --font-size:30px;
+    --ico-size:1.0em;
+  }
+
+  //with icons
+  svg{
+    display: block;
+    margin: 0;
+    width: var(--ico-size);
+    height: var(--ico-size);
+  }
+
+  .make-colors-negative();
+
+}
+
+
+
+
+

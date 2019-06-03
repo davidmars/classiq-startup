@@ -1,0 +1,46 @@
+.make-colors-negative(){
+  border-color: transparent;
+  color: var(--color-secondary);
+  background-color: var(--color-primary,#f00);
+}
+.make-colors-positive(){
+  color: var(--color-primary);
+  border: var(--bdr-width,1px) solid var(--color-primary,#f00);
+  background-color: var(--color-secondary,#f00);
+}
+.make-colors-naked(){
+  border-color: transparent;
+  background-color: transparent;
+}
+.make-colors-transparent(){
+  background-color: transparent;
+  border: 2px solid var(--color-primary,#f00);
+}
+
+.negative,
+.negative-hvr:hover,
+.hvr:hover .negative-hvr
+{
+  .make-colors-negative() !important;
+}
+
+.positive,
+.positive-hvr:hover,
+.hvr:hover .positive-hvr
+{
+  .make-colors-positive() !important;
+}
+
+.naked,
+.naked-hvr:hover,
+.hvr:hover .naked-hvr
+{
+  .make-colors-naked() !important;
+}
+
+.transparent,
+.transparent-hvr:hover,
+.hvr:hover .transparent-hvr
+{
+  .make-colors-transparent() !important;
+}
