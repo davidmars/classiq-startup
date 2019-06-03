@@ -42,5 +42,18 @@
             <hr class="ghost fat color-fluo">
         </div>
 
+        <div class="col-md-3">
+            <label>vertical</label>
+        </div>
+        <div class="col-md-3">
+            <hr class="vertical">
+        </div>
+        <div class="col-md-3">
+            <hr class="vertical h-big">
+        </div>
+        <div class="col-md-3">
+            <hr class="vertical h-medium fat color-fluo">
+        </div>
+
     </div>
 </div>
