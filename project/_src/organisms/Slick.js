@@ -34,43 +34,38 @@ export default class Slick{
     static initFromDom(){
         $("[data-slick]").not(".slick-init").each(function(){
             //new Slick($(this));
-            $(this).addClass("slick-init");
-
+            let $el=$(this);
+            $el.addClass("slick-init");
             let obj={
                 infinite: true,
                 dots:true,
-                //slidesToShow: 2,
+                arrows:true,
+                slidesToShow: 3,
                 adaptiveHeight: false,
                 autoplay:true,
-                arrows:true,
                 respondTo:'min',
                 // the magic
-                responsive: [{
-                    breakpoint: 1000,
-                    settings: {
-                        slidesToShow: 3,
+                responsive: [
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 2,
+                            dots:true,
+                            arrows:true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            dots:false,
+                            arrows:true
+                        }
                     }
-
-                }, {
-
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                    }
-
-                }, {
-
-                    breakpoint: 300,
-                    settings: {
-                        slidesToShow: 1,
-                        dots:false,
-                        arrows:true
-                    }
-
-                }]
+                ]
 
 
-            }
+            };
             if($(this).is(".slick-single")){
                 obj={
                     infinite: true,

@@ -26,6 +26,8 @@ export default class Site{
         NavMenu.__init();
         require("./components/data-zoom-img");
         require("./components/data-is-lang");
+        require("./organisms/data-cards-container.js");
+
         Slick.initFromDom();
         //require("./blocks/FormContact");
         //FormContact.initFromDom();
@@ -63,6 +65,10 @@ export default class Site{
         $body.on(Pov.events.DOM_CHANGE,function(){
             me.onDomChange();
         });
+
+
+
+
 
     }
 

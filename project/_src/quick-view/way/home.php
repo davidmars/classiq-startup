@@ -29,24 +29,33 @@ $view->inside("layout/layout", $vv);
 <div class="bg-fluo-2 shp-rounded py-big text-center">
     <div class="container">
         <h2 class="fg-white mb-big">Toi aussi, donne ton avis !</h2>
-        <div class="row">
-            <?for ($i=0;$i<4;$i++):?>
-            <div class="col-md-6 col-xl-3 mb-medium">
-                <div class="card shp-rounded shadow-big ratio-4x3">
-                    <div class="bg fx-darken fx-level-25">
-                        <img src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg">
-                    </div>
-                    <div class="fg">
-                        <a class="button color-white transparent mb-small">
-                            #sciences
-                        </a>
-                        <a class="button color-fluo negative">
-                            Je donne mon avis
-                        </a>
-                    </div>
+        <div class="mb-medium" data-cards-container>
+            <div class="color-fluo slick-cards cards-container-wrapper" data-slick>
+            <?for ($i=0;$i<20;$i++):?>
+
+                <div class="">
+                <div class="">
+
+                        <div class="card shp-rounded ratio-4x3">
+                            <div class="bg fx-darken fx-level-25">
+                                <img src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg">
+                            </div>
+                            <div class="fg">
+                                <a class="button color-white transparent mb-small">
+                                    #sciences
+                                </a>
+                                <a class="button color-fluo negative">
+                                    Je donne mon avis
+                                </a>
+                            </div>
+                        </div>
+
                 </div>
-            </div>
+                </div>
+
+
             <?endfor;?>
+            </div>
         </div>
 
 
