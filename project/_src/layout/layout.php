@@ -23,6 +23,7 @@ if(is_a($vv,"\Classiq\Models\Page")){
 }
 
 if(!the()->requestUrl->isAjax){
+    the()->htmlLayout()->addJsToFooter("project/_src/organisms/slick-carousel/slick/slick.min.js");
     the()->htmlLayout()->addJsToFooter("dist/app.js");
     the()->htmlLayout()->addCssToHeader("dist/app.css");
     if(\Classiq\Wysiwyg\Wysiwyg::$enabled){

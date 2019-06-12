@@ -1,5 +1,4 @@
-import "slick-carousel";
-require("slick-carousel/slick/slick.css");
+
 
 /**
  * @see http://kenwheeler.github.io/slick/
@@ -34,8 +33,55 @@ export default class Slick{
      */
     static initFromDom(){
         $("[data-slick]").not(".slick-init").each(function(){
-            new Slick($(this));
+            //new Slick($(this));
             $(this).addClass("slick-init");
+
+            let obj={
+                infinite: true,
+                dots:true,
+                //slidesToShow: 2,
+                adaptiveHeight: false,
+                autoplay:true,
+                arrows:true,
+                respondTo:'min',
+                // the magic
+                responsive: [{
+                    breakpoint: 1000,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+
+                }, {
+
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+
+                }, {
+
+                    breakpoint: 300,
+                    settings: {
+                        slidesToShow: 1,
+                        dots:false,
+                        arrows:true
+                    }
+
+                }]
+
+
+            }
+            if($(this).is(".slick-single")){
+                obj={
+                    infinite: true,
+                    dots:true,
+                    slidesToShow: 1,
+                    adaptiveHeight: false,
+                    autoplay:true,
+                    arrows:true,
+                }
+            }
+            $(this).slick(obj)
         })
     }
 }

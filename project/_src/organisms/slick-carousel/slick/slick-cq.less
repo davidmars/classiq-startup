@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+// Default Variables
+
+
+
+@slick-loader-path: "./";
+
+@slick-dot-color: black;
+
+@slick-opacity-on-hover: 1;
+@slick-opacity-not-active: 0.25;
+
+/* Slider */
+.slick-loading .slick-list{
+    background: #fff url('@{slick-loader-path}ajax-loader.gif') center center no-repeat;
+}
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+    @sz:20px;
+    position: absolute;
+    display: block;
+    height: @sz;
+    width: @sz;
+    border: 1px solid transparent;
+    border-top: 1px solid var(--color-primary);
+    border-left: 1px solid var(--color-primary);
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    top: calc( 50% - @sz / 2 );
+
+    padding: 0;
+    outline: none;
+    &:hover, &:focus {
+        outline: none;
+        background: transparent;
+        color: transparent;
+        &:before {
+        }
+    }
+    &.slick-disabled:before {
+        opacity: 0.2;
+    }
+}
+.slick-prev {
+    transform: rotate(-45deg);
+    left: -25px;
+}
+.slick-next {
+    transform: rotate(135deg);
+    right: -25px;
+}
+
+/* Dots */
+
+.slick-dotted .slick-slider {
+    //margin-bottom: 30px;
+}
+
+.slick-dots {
+    position: absolute;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+    li {
+        position: relative;
+        display: inline-block;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+        button {
+            border: 1px solid var(--color-primary);
+            border-radius: 100%;
+            width: 10px;
+            height: 10px;
+            background-color: var(--color-secondary);
+
+            outline: none;
+            display: block;
+
+            line-height: 0;
+            font-size: 0;
+            color: transparent;
+            padding: 0;
+            cursor: pointer;
+            &:hover, &:focus {
+
+            }
+        }
+        &.slick-active button {
+            background-color: var(--color-primary);
+        }
+    }
+}

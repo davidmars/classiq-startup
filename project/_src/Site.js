@@ -1,4 +1,5 @@
 import Slick from "./organisms/Slick.js";
+
 export default class Site{
     constructor() {
         /**
@@ -25,6 +26,7 @@ export default class Site{
         NavMenu.__init();
         require("./components/data-zoom-img");
         require("./components/data-is-lang");
+        Slick.initFromDom();
         //require("./blocks/FormContact");
         //FormContact.initFromDom();
 
