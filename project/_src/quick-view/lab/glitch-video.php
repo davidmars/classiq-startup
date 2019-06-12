@@ -48,7 +48,7 @@ if(!the()->requestUrl->isAjax){
     }
 </style>
 <div>
-    <canvas id="myCanvas" width="854px" height="480px"></canvas>
+    <canvas id="myCanvas" zwidth="854px" zheight="480px"></canvas>
     <div id="layer">
         <h1>Glitch Video</h1>
     </div>
