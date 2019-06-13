@@ -30,37 +30,29 @@ $view->inside("layout/layout", $vv);
     <div class="container">
         <h2 class="fg-white mb-big">Toi aussi, donne ton avis !</h2>
         <div class="mb-medium" data-cards-container>
-            <div class="color-fluo slick-cards cards-container-wrapper" data-slick>
+            <div class="color-fluo cards-container-wrapper shp-rounded-list shadow-medium-list" data-slick='{"autoplay": false}'>
             <?for ($i=0;$i<20;$i++):?>
-
-                <div class="">
-                <div class="">
-
-                        <div class="card shp-rounded ratio-4x3">
-                            <div class="bg fx-darken fx-level-25">
-                                <img src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg">
-                            </div>
-                            <div class="fg">
-                                <a class="button color-white transparent mb-small">
-                                    #sciences
-                                </a>
-                                <a class="button color-fluo negative">
-                                    Je donne mon avis
-                                </a>
-                            </div>
+                <div class="my-medium">
+                    <div class="card ratio-4x3 shp shadow">
+                        <div class="bg fx-darken fx-level-25">
+                            <img alt="" src="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg">
                         </div>
-
+                        <div class="fg">
+                            <a class="button color-white transparent mb-small">
+                                #sciences <?=$i;?>
+                            </a>
+                            <a class="button color-fluo negative">
+                                Je donne mon avis
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                </div>
-
-
             <?endfor;?>
             </div>
         </div>
-
-
     </div>
 </div>
+
 <div class="bg-fluo shp-rounded py-big text-center">
     <div class="container">
         <h2 class="fg-fluo-2 mb-big">A la une ...</h2>
@@ -68,7 +60,7 @@ $view->inside("layout/layout", $vv);
         <?for ($i=0;$i<4;$i++):?>
 
                 <div>
-                    <div href="#" class="card hvr ratio-4x3">
+                    <div href="#" class="card hvr ratio-4x3 shp shadow">
                         <div class="bg fx-gradient-bottom color-fluo-2 fx-level-75 fx-level-100-hvr">
                             <img alt="test" src="https://le-drone.com/__cache/robert/img/__db/localhost/glspxueq_drone/dev/uids/57474/LIGHTNING_BOLT_PIX_1-1.jpg/380-214-nb/ffffff-80.jpg">
                         </div>

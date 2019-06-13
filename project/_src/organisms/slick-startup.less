@@ -1,31 +1,40 @@
-@charset "UTF-8";
+@slick-opacity-not-active: 0.25;
 
-// Default Variables
 
-.slick-cards{
-
-    margin-left: auto;
-    margin-right: auto;
-
+.cards-container-wrapper{
     .slick-slide{
         display: flex;
         justify-content: center;
-        >*{
-            position: relative;
+        padding: var(--gutter);
+        >.card{
             width: 300px;
-            margin: var(--gutter);
         }
     }
 }
 
-//@slick-loader-path: "./";
+.slick-slider{
+    --dots-height:40px;
+    --dots-size:10px;
+    &.slick-dotted{
+        padding-bottom: var(--dots-height);
+        .slick-dots{
+            height: var(--dots-height);
+            li{
+                button{
+                    width: var(--dots-size);
+                    height: var(--dots-size);
+                }
+            }
+        }
+    }
+}
 
-@slick-opacity-not-active: 0.25;
 
 /* Slider */
 .slick-loading .slick-list{
     //background: #fff url('@{slick-loader-path}ajax-loader.gif') center center no-repeat;
 }
+
 
 /* Arrows */
 .slick-prev,
@@ -36,14 +45,18 @@
     height: @sz;
     width: @sz;
     border: 1px solid transparent;
-    border-top: 1px solid var(--color-primary);
-    border-left: 1px solid var(--color-primary);
+    border-top: 1px solid var(--color-primary,#000);
+    border-left: 1px solid var(--color-primary,#000);
     line-height: 0px;
     font-size: 0px;
     cursor: pointer;
     background: transparent;
     color: transparent;
-    top: calc( 50% - @sz / 2 );
+
+    top: calc(  100%  / 2 - @sz / 2 );
+    .slick-dotted & {
+        top: calc( ( 100% - var(--dots-height) ) / 2 - @sz / 2 );
+    }
 
     padding: 0;
     outline: none;
@@ -51,8 +64,6 @@
         outline: none;
         background: transparent;
         color: transparent;
-        &:before {
-        }
     }
     &.slick-disabled:before {
         opacity: 0.2;
@@ -69,15 +80,12 @@
 
 /* Dots */
 
-.slick-dotted .slick-slider {
-    //margin-bottom: 30px;
-}
-
 .slick-dots {
     position: absolute;
     list-style: none;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 10px;
     margin: 0;
     width: 100%;
@@ -91,26 +99,24 @@
         padding: 0;
         cursor: pointer;
         button {
-            border: 1px solid var(--color-primary);
             border-radius: 100%;
-            width: 10px;
-            height: 10px;
-            background-color: var(--color-secondary);
-
+            border: 1px solid var(--color-primary,#000);
+            background-color: var(--color-secondary,#fff);
             outline: none;
             display: block;
-
             line-height: 0;
             font-size: 0;
             color: transparent;
             padding: 0;
             cursor: pointer;
             &:hover, &:focus {
-
+                transform: scale(1.1);
             }
         }
         &.slick-active button {
-            background-color: var(--color-primary);
+            background-color: var(--color-primary,#000);
         }
     }
 }
+
+

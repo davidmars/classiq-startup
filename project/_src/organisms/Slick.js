@@ -36,36 +36,7 @@ export default class Slick{
             //new Slick($(this));
             let $el=$(this);
             $el.addClass("slick-init");
-            let obj={
-                infinite: true,
-                dots:true,
-                arrows:true,
-                slidesToShow: 3,
-                adaptiveHeight: false,
-                autoplay:true,
-                respondTo:'min',
-                // the magic
-                responsive: [
-                    {
-                        breakpoint: 800,
-                        settings: {
-                            slidesToShow: 2,
-                            dots:true,
-                            arrows:true
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 1,
-                            dots:false,
-                            arrows:true
-                        }
-                    }
-                ]
-
-
-            };
+            let obj={};
             if($(this).is(".slick-single")){
                 obj={
                     infinite: true,
@@ -75,6 +46,41 @@ export default class Slick{
                     autoplay:true,
                     arrows:true,
                 }
+            }
+            if($(this).is("[data-cards-container] .cards-container-wrapper")){
+                obj={
+                    infinite: true,
+                    dots:true,
+                    arrows:true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    adaptiveHeight: false,
+                    autoplay:true,
+                    respondTo:'min',
+                    // the magic
+                    responsive: [
+                        {
+                            breakpoint: 800,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2,
+                                dots:true,
+                                arrows:true
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                dots:false,
+                                arrows:true
+                            }
+                        }
+                    ]
+
+
+                };
             }
             $(this).slick(obj)
         })
