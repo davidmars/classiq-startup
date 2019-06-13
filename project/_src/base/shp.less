@@ -1,5 +1,6 @@
 //shape-----------------------------
 
+//base mixins
 .make-shp-pill(){
   border-radius: 100px;
 }
@@ -13,7 +14,7 @@
   border-radius: 100%;
 }
 
-
+//hovers
 .shp-rounded,.shp-rounded-hvr:hover{
   .make-shp-rounded() !important;
 }
@@ -27,5 +28,18 @@
   .make-shp-circle() !important;
 }
 
+//lists
+
+//applique à tous les shp-item le même shp
+.shp-rounded-list{
+  .shp{
+    .make-shp-rounded();
+  }
+}
+.shp-rounded-rect{
+  .shp{
+    .make-shp-rect();
+  }
+}
 
 

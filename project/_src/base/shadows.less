@@ -1,3 +1,4 @@
+//flat
 .text-shadow-flat{
   text-shadow:  0 1px 2px rgba(0,0,0,.2), 0 0 4px rgba(0,0,0,.3);
 }
@@ -5,6 +6,7 @@
   box-shadow:  0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
 }
 
+//medium
 .text-shadow-medium{
   text-shadow:  0 1px 4px rgba(0,0,0,.6), 0 2px 8px rgba(0,0,0,.2);
 }
@@ -12,9 +14,28 @@
   box-shadow: 0 6px 6px -3px rgba(0,0,0,.2), 0 10px 14px 1px rgba(0,0,0,.14), 0 4px 18px 3px rgba(0,0,0,.12);
 }
 
+//big
 .text-shadow-big{
   text-shadow:  0 1px 8px rgba(0,0,0,.8), 0 0px 16px rgba(0,0,0,.6);
 }
 .shadow-big{
   box-shadow:   0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+}
+
+
+//lists
+&.shadow-flat-list{
+  .shadow{
+    .shadow-flat;
+  }
+}
+&.shadow-medium-list{
+  .shadow{
+    .shadow-medium;
+  }
+}
+&.shadow-big-list{
+  .shadow{
+    .shadow-big;
+  }
 }

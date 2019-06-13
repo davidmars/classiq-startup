@@ -21,38 +21,6 @@
     flex-shrink: 0;
   }
 
-
-  //applique à tous les mêmes shp
-  &.shp-rounded-list{
-    .card{
-      .shp-rounded;
-    }
-  }
-  &.shp-rounded-rect{
-    .card{
-      .shp-rect;
-    }
-  }
-
-
-  //applique à tous les mêmes shadow
-  &.shadow-flat-list{
-    .card{
-      .shadow-flat;
-    }
-  }
-  &.shadow-medium-list{
-    .card{
-      .shadow-medium;
-    }
-  }
-  &.shadow-big-list{
-    .card{
-      .shadow-big;
-    }
-  }
-
-
   //rend non responsive
   .card{
     .sz-big{
@@ -63,21 +31,3 @@
 
 }
 
-[data-cards-container]{
-  //outline: 1px dashed yellow;
-  >.cards-container-wrapper{
-    //outline: 1px dashed pink;
-    margin-left: auto;
-    margin-right: auto;
-
-    &[size='<660']{
-      width: calc( 330px );
-    }
-    &[size='<990']{
-      width: calc( 660px );
-    }
-    &[size='>990'] {
-      width: calc(990px);
-    }
-  }
-}

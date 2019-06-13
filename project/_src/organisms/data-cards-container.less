@@ -1,0 +1,18 @@
+[data-cards-container]{
+  outline: 1px dashed red;
+  >.cards-container-wrapper{
+    //outline: 1px dashed pink;
+    margin-left: auto;
+    margin-right: auto;
+
+    &[size='<660']{
+      width: calc( 330px );
+    }
+    &[size='<990']{
+      width: calc( 660px );
+    }
+    &[size='>990'] {
+      width: calc(990px);
+    }
+  }
+}
