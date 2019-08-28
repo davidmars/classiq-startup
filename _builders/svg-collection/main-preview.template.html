@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>${title}</title>
+
+    <style>
+        code {
+            display: block;
+            font-family: monospace;
+            font-size: 11px;
+            color: hsl(0, 0%, 40%);
+        }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .item {
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+            width: 120px;
+            height: 100px;
+            text-align: center;
+        }
+        .icon {
+            display: inline-block;
+            border: 1px solid hsl(0, 0%, 90%);
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div id="icons">
+        <div id="grid" class="grid" ></div>
+    </div>
+
+    <div style="display: none">
+        <div id="svg">${svg}</div>
+        <div class="item" id="item-template">
+            <svg class="icon">
+                <use xlink:href="#bca-close"></use>
+            </svg>
+            <code>#</code>
+        </div>
+    </div>
+</body>
+<script>
+    //generate grid from svg symbols
+    let $svg=document.getElementById("svg");
+    let $grid=document.getElementById("grid");
+    let $symbols=document.querySelectorAll("#svg defs symbol");
+    let $itemTemplate=document.getElementById("item-template");
+    $itemTemplate.removeAttribute("id");
+    for (let s in $symbols){
+        if( $symbols.hasOwnProperty( s ) ) {
+            let id=$symbols[s].id;
+            if(id) {
+                console.log(id);
+                let $item = $itemTemplate.cloneNode(true);
+                $item.querySelectorAll("code")[0].textContent = id;
+                $item.querySelectorAll("use")[0].setAttribute('xlink:href', "#" + id);
+                $grid.appendChild($item);
+            }
+        }
+    }
+</script>
+</html>
