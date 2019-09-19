@@ -1,10 +1,4 @@
 <?php
-the()->fmkHttpRoot="zzz-fmkHttpRoot-zzz";// /github/classiq-startup
-the()->configProjectUrl=new \Pov\Configs\ProjectUrl("zzz-configProjectUrl-zzz"); // localhost/github/classiq-startup/fr
-the()->fileSystem=new \Pov\Configs\FileSystem("project");
-the()->configProjectUrl->seoActive=true;
-the()->boot->loadProject("project");
-the()->project->langCode="zzz-langCode-zzz";
 the()->project->languages=["fr","en"];
 the()->project->languagesUrls=[
     "fr"=>"zzz-httpHost-zzzzzz-fmkHttpRoot-zzz/fr",
@@ -23,8 +17,8 @@ the()->project->config_translations_debug=true; //quand true recharge à chaque 
 //Google Map etc...
 //site()->googleApiKey="xxxxx";
 
-//Google search console tools
-//the()->htmlLayout()->googleSiteVerification="xxxxx";
+//Google webmaster tools
+//TODO configurer the()->htmlLayout()->googleSiteVerification="xxxxx";
 
 //Google analytics
-//site()->googleAnalyticsId="UA-xxxxxx";
+//TODO configurer site()->googleAnalyticsId="UA-xxxxxx";

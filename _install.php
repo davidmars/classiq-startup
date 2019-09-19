@@ -8,18 +8,28 @@ if(!is_dir($routeDir)){
 //crée les fichiers de config pour chaque langue
 $outputs=[];
 foreach(["fr","en"] as $lang){
-    $configFile="$routeDir/$lang.php";
-    if(!is_file($configFile)){
-        $content=file_get_contents("_install/route-config-template.php");
+    $configLanguageFile="$routeDir/$lang.php";
+    if(!is_file($configLanguageFile)){
+        $content=file_get_contents("_install/language-template.php");
         $content=str_replace("zzz-fmkHttpRoot-zzz",dirname($_SERVER["REQUEST_URI"]),$content);
         $content=str_replace("zzz-configProjectUrl-zzz","$httpDir/$lang",$content);
         $content=str_replace("zzz-langCode-zzz","$lang",$content);
         $content=str_replace("zzz-httpHost-zzz","http://".$_SERVER["HTTP_HOST"],$content);
-        file_put_contents($configFile,$content);
-        $outputs[$configFile]=$content;
+        file_put_contents($configLanguageFile,$content);
+        $outputs[$configLanguageFile]=$content;
     }else{
-        $outputs[$configFile]="Le fichier existait déjà, on ne l'a pas écrasé";
+        $outputs[$configLanguageFile]="Le fichier existait déjà, on ne l'a pas écrasé";
     }
+}
+$sharedFile="$routeDir/shared.php";
+if(!is_file($sharedFile)){
+    $content=file_get_contents("_install/shared-template.php");
+    $content=str_replace("zzz-fmkHttpRoot-zzz",dirname($_SERVER["REQUEST_URI"]),$content);
+    $content=str_replace("zzz-configProjectUrl-zzz","$httpDir/$lang",$content);
+    $content=str_replace("zzz-langCode-zzz","$lang",$content);
+    $content=str_replace("zzz-httpHost-zzz","http://".$_SERVER["HTTP_HOST"],$content);
+    file_put_contents($sharedFile,$content);
+    $outputs[$sharedFile]=$content;
 }
 ?>
 <style>
