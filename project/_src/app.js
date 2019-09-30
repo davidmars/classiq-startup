@@ -35,6 +35,24 @@ Pov.onBodyReady(function(){
     }else{
         window.$body.addClass("is-not-touch");
     }
+    if(isTouchDevice()){
+        //add a css class when virtual keyboard is open
+        let selector="input[type='text'],input[type='number'],input[type='url'],input[type='email'],textarea"
+        $(document)
+            .on('focus',selector, function(e) {
+                window.$body.addClass("virtual-keyboard-open");
+            })
+            .on('blur', selector, function(e) {
+                window.$body.removeClass("virtual-keyboard-open");
+        });
+    }
+    
+    //ios?
+    let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if(iOS){
+        window.$body.addClass("is-ios");
+    }
+    
     //edge / ie or not
     if(navigator.userAgent.indexOf("Edge") !== -1){
         window.$body.addClass("is-edge");
