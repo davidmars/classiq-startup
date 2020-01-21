@@ -1,5 +1,5 @@
 //on inclue classiq
-require("../../vendor/davidmars/classiq/Classiq/_src/classiq.boot");
+require("../../vendor/davidmars/classiq/dist/classiq.boot");
 require("../../vendor/davidmars/classiq/Classiq/_src/cq-debug/WebpackVersion");
 
 require("./app.less");
